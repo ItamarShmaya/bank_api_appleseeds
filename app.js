@@ -61,9 +61,12 @@ app.get("/accounts", (req, res) => {
 });
 
 app.get("/users", (req, res) => {
-  const { filter, min, max, name } = req.query;
+  const { filter, min, max, firstName, lastName } = req.query;
   if (filter === "cash") return res.send(filterUsersByCash(min, max));
-  if (filter === "name") return res.send(filterUsersByName(name));
+  if (filter === "firstname")
+    return res.send(filterUsersByName("firstName", firstName));
+  if (filter === "lastname")
+    return res.send(filterUsersByName("lastName", lastName));
 });
 
 app.get("/user", (req, res) => {

@@ -22,11 +22,11 @@ export const filterUsersByRangeCashAmount = (min, max) => {
   return users.filter((user) => user.totalCash >= min && user.totalCash <= max);
 };
 
-export const filterUsersByName = (name) => {
+export const filterUsersByName = (nameKey, name) => {
   if (name) {
     const users = getAllUsers();
     return users.filter((user) =>
-      user.name.toLowerCase().includes(name.toLowerCase())
+      user[nameKey].toLowerCase().includes(name.toLowerCase())
     );
   } else {
     return getAllUsers();
