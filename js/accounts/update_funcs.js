@@ -22,7 +22,7 @@ export const depositeCash = (accountId, amount) => {
 export const withdrawCash = (accountId, amount) => {
   const accounts = getAllAccounts();
   const accountIndex = getAccountIndexById(accountId);
-  accounts[accountIndex].cash -= Math.abs(amount);
+  accounts[accountIndex].cash -= amount;
   saveAccounts(accounts);
   return accounts[accountIndex];
 };

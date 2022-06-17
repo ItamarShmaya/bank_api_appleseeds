@@ -53,12 +53,10 @@ export const isValidTransaction = (accountId, amount, action) => {
       );
     }
   }
-  if (action === "credit" || action === "deposite") {
-    if (amount < 0) {
-      throw new Error(
-        `Can't complete the action. The ${action} amount shouldn't be negetive`
-      );
-    }
+  if (amount < 0) {
+    throw new Error(
+      `Can't complete the action. The ${action} amount shouldn't be negetive`
+    );
   }
 };
 
