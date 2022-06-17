@@ -27,9 +27,13 @@
 **/users?filter={}&min={}&max={}&firstName={}&lastName={}**
 
 filter **required** => cash / firstname / lastname
+
 min => if specified set minimum cash
+
 max => if specified set maximum cash
+
 fistName => for firstName
+
 lastName => for lastName
 
 ##### get all accounts
@@ -157,6 +161,7 @@ req.body: {
 ##### create user
 
 **/users**
+
 **_required_**
 
 ```
@@ -168,6 +173,7 @@ req.body: {
 ```
 
 \*accounts => an array.
+
 empty/existing account id / new account object.
 example:
 
