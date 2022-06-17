@@ -8,7 +8,7 @@
 
 ### PUT
 
-##### get all users
+#### get all users
 
 **/users**
 
@@ -22,7 +22,7 @@
 ]
 ```
 
-##### get users by search
+#### get users by search
 
 **/users?filter={}&min={}&max={}&firstName={}&lastName={}**
 
@@ -36,7 +36,7 @@ fistName => for firstName
 
 lastName => for lastName
 
-##### get all accounts
+#### get all accounts
 
 **/accounts**
 
@@ -52,7 +52,7 @@ lastName => for lastName
 ]
 ```
 
-##### get user by id
+#### get user by id
 
 **/user/{id}**
 
@@ -64,7 +64,7 @@ lastName => for lastName
   }
 ```
 
-##### get user by id full
+#### get user by id full
 
 **/user/{id}**
 
@@ -84,7 +84,7 @@ lastName => for lastName
   }
 ```
 
-##### withdraw by user id
+#### withdraw by user id
 
 **/user/{id}/withdraw**
 **_required_**
@@ -96,7 +96,7 @@ req.body: {
 }
 ```
 
-##### deposite by user id
+#### deposite by user id
 
 **/user/{id}/deposite**
 **_required_**
@@ -108,7 +108,7 @@ req.body: {
 }
 ```
 
-##### change credit by user id
+#### change credit by user id
 
 **/user/{id}/credit**
 **_required_**
@@ -120,7 +120,7 @@ req.body: {
 }
 ```
 
-##### transfer by user id
+#### transfer by user id
 
 **/user{id}/transfer**
 **_required_**
@@ -134,7 +134,7 @@ req.body: {
 }
 ```
 
-##### add existing account to user
+#### add existing account to user
 
 **/user/{id}/add-account**
 **_required_**
@@ -145,7 +145,7 @@ req.body: {
 }
 ```
 
-##### remove account from user
+#### remove account from user
 
 **/user/{id}/remove-account**
 **_required_**
@@ -158,7 +158,7 @@ req.body: {
 
 ### POST
 
-##### create user
+#### create user
 
 **/users**
 
@@ -205,10 +205,10 @@ example:
 
 ### DELETE
 
-##### delete user
+#### delete user
 
 **/users/{id}**
 
-##### delete account
+#### delete account
 
 **/account/{id}**
