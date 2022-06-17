@@ -1,6 +1,5 @@
 import fs from "fs";
 import { ACCOUNTS_PATH } from "../../data/data_dir_path.js";
-import { getAllUsers } from "../users/get_func.js";
 
 export const getAllAccounts = () => {
   try {

@@ -3,11 +3,11 @@ import {
   getAllUsers,
   getUserById,
   getUserByIdFull,
-} from "./js/users/get_func.js";
+} from "./src/users/get_func.js";
 import {
   doesUserExist,
   doesUserOwnAccount,
-} from "./js/users/validation_funcs.js";
+} from "./src/users/validation_funcs.js";
 import {
   addAccountToUser,
   addUser,
@@ -15,32 +15,33 @@ import {
   removeAccountFromUser,
   removeAccountIdFromAllUsers,
   updateUserCashBasedOnAccounts,
-} from "./js/users/update_funcs.js";
-import { getAccountById, getAllAccounts } from "./js/accounts/get_funcs.js";
+} from "./src/users/update_funcs.js";
+import { getAccountById, getAllAccounts } from "./src/accounts/get_funcs.js";
 import {
   TRANSACTIONS,
   checkUserAndAccount,
   isValidTransaction,
   doesAccountExist,
   doesAccountHaveCashOrInDebt,
-} from "./js/accounts/validation_funcs.js";
+} from "./src/accounts/validation_funcs.js";
 import {
   depositeCash,
   withdrawCash,
   updateCredit,
   deleteAccountById,
   removeUserIdFromAccount,
-} from "./js/accounts/update_funcs.js";
+} from "./src/accounts/update_funcs.js";
 import {
   filterUsersByCash,
   filterUsersByName,
-} from "./js/users/filter_funcs.js";
+} from "./src/users/filter_funcs.js";
 
 const PORT = process.env.PORT || 5050;
 
 const app = express();
 
 app.use(express.json());
+app.use(express.static("./public"));
 
 app.get("/", (req, res) => {
   res.send("Hello");

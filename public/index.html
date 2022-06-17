@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Acme&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>Bank API</title>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header>
+        <img src="./assets/dollar-sign1.png" />
+        <img src="./assets/dollar-sign1.png" />
+        <h1>BANK API</h1>
+        <img src="./assets/dollar-sign1.png" />
+        <img src="./assets/dollar-sign1.png" />
+      </header>
+      <main>
+        <h1 class="main-heading">Usage</h1>
+        <h2>Base URL</h2>
+        <p>
+          <a href="https://is-bank-api.herokuapp.com" target="_blank"
+            >https://is-bank-api.herokuapp.com</a
+          >
+        </p>
+        <div class="methods">
+          <h1>METHODS</h1>
+          <ul>
+            <a href="#GET">
+              <li>GET</li>
+            </a>
+            <a href="#PUT">
+              <li>PUT</li>
+            </a>
+            <a href="#POST">
+              <li>POST</li>
+            </a>
+            <a href="#DELETE">
+              <li>DELTE</li>
+            </a>
+          </ul>
+        </div>
+        <section id="GET">
+          <h1>GET</h1>
+          <div class="endpoint">
+            <h2>get all users</h2>
+            <h3>/users</h3>
+            <h4>Returns:</h4>
+            <div>
+              <!-- prettier-ignore -->
+              <pre><code>[ 
+  { 
+    "firstName": "string", 
+    "lastName": "string", 
+    "accounts": ["string"] 
+  } 
+]</code></pre>
+            </div>
+          </div>
+          <div class="endpoint">
+            <h2>get users by search</h2>
+            <h3>/users?filter={}&min={}&max={}&firstName={}&lastName={}</h3>
+            <p>filter required => cash / firstname / lastname</p>
+            <p>min => if specified set minimum cash</p>
+            <p>max => if specified set maximum cash</p>
+            <p>firstName => for firstName</p>
+            <p>lastName => for lastName</p>
+            <h4>Returns:</h4>
+            <div>
+              <!-- prettier-ignore -->
+              <pre><code>[ 
+  { 
+    "firstName": "string", 
+    "lastName": "string", 
+    "accounts": ["string"] 
+  } 
+]</code></pre>
+            </div>
+          </div>
+          <div class="endpoint">
+            <h2>get all accounts</h2>
+            <h3>/accounts</h3>
+            <h4>Returns:</h4>
+            <div>
+              <!-- prettier-ignore -->
+              <pre><code>[ 
+  { 
+    "cash": numebr, 
+    "credit": number, 
+    "isActive": boolean,
+    "accountId": "string",
+    "ownersId": ["string"] 
+  } 
+]</code></pre>
+            </div>
+          </div>
+          <div class="endpoint">
+            <h2>get user by id</h2>
+            <h3>/user/{id}</h3>
+            <h4>Returns:</h4>
+            <div>
+              <!-- prettier-ignore -->
+              <pre><code>[ 
+  { 
+    "firstName": "string", 
+    "lastName": "string", 
+    "accounts": ["string"] 
+  } 
+]</code></pre>
+            </div>
+          </div>
+          <div class="endpoint">
+            <h2>get user by id full</h2>
+            <h3>/user/{id}</h3>
+            <h4>Returns:</h4>
+            <div>
+              <!-- prettier-ignore -->
+              <pre><code>[ 
+  { 
+    "firstName": "string", 
+    "lastName": "string", 
+    "accounts": [
+      {
+        "cash": number,
+        "credit": number,
+        "isActive": boolean,
+        "accountId": "string",
+        "ownersId": ["string"]
+      }
+    ] 
+  } 
+]</code></pre>
+            </div>
+          </div>
+        </section>
+        <section id="PUT">
+          <h1>PUT</h1>
+          <div class="endpoint">
+            <h2>withdraw by user id</h2>
+            <h3>/user/{id}/withdraw</h3>
+            <h4>required</h4>
+            <div>
+              <!-- prettier-ignore -->
+              <pre><code>req.body: {
+  "accountId": "string",
+  "amount": number
+}</code></pre>
+            </div>
+            <p>Returns user's account</p>
+          </div>
+          <div class="endpoint">
+            <h2>deposite by user id</h2>
+            <h3>/user/{id}/deposite</h3>
+            <h4>required</h4>
+            <div>
+              <!-- prettier-ignore -->
+              <pre><code>req.body: {
+  "accountId": "string",
+  "amount": number
+}</code></pre>
+            </div>
+            <p>Returns user's account</p>
+          </div>
+          <div class="endpoint">
+            <h2>change credit by user id</h2>
+            <h3>/user/{id}/credit</h3>
+            <h4>required</h4>
+            <div>
+              <!-- prettier-ignore -->
+              <pre><code>req.body: {
+  "accountId": "string",
+  "amount": number
+}</code></pre>
+            </div>
+            <p>Returns user's account</p>
+          </div>
+          <div class="endpoint">
+            <h2>transfer by user id</h2>
+            <h3>/user{id}/transfer</h3>
+            <h4>required</h4>
+            <div>
+              <!-- prettier-ignore -->
+              <pre><code>req.body: {
+  "fromAccountId": "string",
+  "amount": number,
+  "toUserId" "string",
+  "toAccountId": "string"
+}</code></pre>
+            </div>
+            <p>Returns user's account</p>
+          </div>
+          <div class="endpoint">
+            <h2>add existing account to user</h2>
+            <h3>/user/{id}/add-account</h3>
+            <h4>required</h4>
+            <div>
+              <!-- prettier-ignore -->
+              <pre><code>req.body: {
+  "accountId": "string",
+}</code></pre>
+            </div>
+            <p>Returns user</p>
+          </div>
+          <div class="endpoint">
+            <h2>remove account from user</h2>
+            <h3>/user/{id}/remove-account</h3>
+            <h4>required</h4>
+            <div>
+              <!-- prettier-ignore -->
+              <pre><code>req.body: {
+  "accountId": "string",
+}</code></pre>
+            </div>
+            <p>Returns user</p>
+          </div>
+        </section>
+        <section id="POST">
+          <h1>POST</h1>
+          <div class="endpoint">
+            <h2>create user</h2>
+            <h3>/users</h3>
+            <h4>required</h4>
+            <div>
+              <!-- prettier-ignore -->
+              <pre><code>req.body: {
+  "firstName": "string",
+  "lastName": "string",
+  "accounts": []
+}</code></pre>
+              <p>*accounts => an array.</p>
+              <p>empty/existing account id / new account object.</p>
+              <p>example:</p>
+              <!-- prettier-ignore -->
+              <pre><code>req.body: {
+"accounts": []
+-----------------------
+"accounts": [
+  "azxcas2e32",
+  "zxczsadzxc",
+]
+-----------------------
+"accounts": [
+  {
+    "cash": numner,
+    "credit": number,
+    "isActive": boolean
+  }
+]
+-----------------------
+"accounts": [
+  "azxcas2e32",
+    {
+      "cash": numner,
+      "credit": number,
+      "isActive": boolean
+    }
+  ]</code></pre>
+            </div>
+            <p>Returns created user</p>
+          </div>
+        </section>
+        <section id="DELETE">
+          <h1>DELETE</h1>
+          <div class="endpoint">
+            <h2>delete user</h2>
+            <h3>/users/{id}</h3>
+            <p>Returns deleted user</p>
+          </div>
+          <div class="endpoint">
+            <h2>delete account</h2>
+            <h3>/account/{id}</h3>
+            <p>Returns deleted account</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

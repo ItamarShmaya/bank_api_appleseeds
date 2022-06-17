@@ -4,7 +4,7 @@
 
 ### Base URL
 
-**https://is-bank-api.herokuapp.com/**
+**https://is-bank-api.herokuapp.com**
 
 # METHODS
 
@@ -259,9 +259,9 @@ Returns created user
 
 #### delete user
 
-Returns deleted user
-
 **/users/{id}**
+
+Returns deleted user
 
 #### delete account
 
