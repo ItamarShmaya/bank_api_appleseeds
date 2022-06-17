@@ -21,6 +21,18 @@
 
 **/users**
 
+Returns:
+
+```
+[
+  {
+    "firstName": "string",
+    "lastName": "string",
+    "accounts": ["string"]
+  }
+]
+```
+
 #### get users by search
 
 **/users?filter={}&min={}&max={}&firstName={}&lastName={}**
@@ -31,9 +43,11 @@ min => if specified set minimum cash
 
 max => if specified set maximum cash
 
-fistName => for firstName
+firstName => for firstName
 
 lastName => for lastName
+
+Returns:
 
 ```
 [
@@ -48,6 +62,8 @@ lastName => for lastName
 #### get all accounts
 
 **/accounts**
+
+Returns:
 
 ```
 [
