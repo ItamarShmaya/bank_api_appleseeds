@@ -15,6 +15,8 @@
     "nodemon": "^2.0.16"
   },
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "uniqid": "^5.4.0",
+    "validator": "^13.7.0"
   }
 }
