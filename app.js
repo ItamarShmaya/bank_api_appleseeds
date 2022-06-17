@@ -71,8 +71,8 @@ app.get("/users", (req, res) => {
 
 app.get("/user", (req, res) => {
   res.send(
-    `Did you mean "http://www.localhost:5050/user/{:id}"
-    or "http://www.localhost:5050/users`
+    `Did you mean "https://is-bank-api.herokuapp.com//user/{:id}"
+    or "https://is-bank-api.herokuapp.com//users`
   );
 });
 

@@ -13,21 +13,13 @@
 - [POST](#post)
 - [DELETE](#delete)
 
+---
+
 ### GET
 
 #### get all users
 
 **/users**
-
-```
-[
-  {
-    "firstName": "string",
-    "lastName": "string",
-    "accounts": ["string"]
-  }
-]
-```
 
 #### get users by search
 
@@ -42,6 +34,16 @@ max => if specified set maximum cash
 fistName => for firstName
 
 lastName => for lastName
+
+```
+[
+  {
+    "firstName": "string",
+    "lastName": "string",
+    "accounts": ["string"]
+  }
+]
+```
 
 #### get all accounts
 
@@ -96,6 +98,7 @@ lastName => for lastName
 #### withdraw by user id
 
 **/user/{id}/withdraw**
+
 **_required_**
 
 ```
@@ -108,6 +111,7 @@ req.body: {
 #### deposite by user id
 
 **/user/{id}/deposite**
+
 **_required_**
 
 ```
@@ -120,6 +124,7 @@ req.body: {
 #### change credit by user id
 
 **/user/{id}/credit**
+
 **_required_**
 
 ```
@@ -132,6 +137,7 @@ req.body: {
 #### transfer by user id
 
 **/user{id}/transfer**
+
 **_required_**
 
 ```
@@ -146,6 +152,7 @@ req.body: {
 #### add existing account to user
 
 **/user/{id}/add-account**
+
 **_required_**
 
 ```
@@ -157,6 +164,7 @@ req.body: {
 #### remove account from user
 
 **/user/{id}/remove-account**
+
 **_required_**
 
 ```
@@ -184,6 +192,7 @@ req.body: {
 \*accounts => an array.
 
 empty/existing account id / new account object.
+
 example:
 
 ```
