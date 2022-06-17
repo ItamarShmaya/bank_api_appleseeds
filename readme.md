@@ -6,7 +6,14 @@
 
 **https://is-bank-api.herokuapp.com/**
 
-### PUT
+# METHODS
+
+- [GET](#get)
+- [PUT](#put)
+- [POST](#post)
+- [DELETE](#delete)
+
+### GET
 
 #### get all users
 
@@ -83,6 +90,8 @@ lastName => for lastName
     ]
   }
 ```
+
+### PUT
 
 #### withdraw by user id
 

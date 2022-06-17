@@ -70,7 +70,10 @@ app.get("/users", (req, res) => {
 });
 
 app.get("/user", (req, res) => {
-  res.send("Need to add id \n Example: 'http://www.localhost:5050/user/{:id}'");
+  res.send(
+    `Did you mean "http://www.localhost:5050/user/{:id}"
+    or "http://www.localhost:5050/users`
+  );
 });
 
 app.get("/user/:id", (req, res) => {
