@@ -16,7 +16,7 @@ import {
   removeAccountIdFromAllUsers,
   updateUserCashBasedOnAccounts,
 } from "./js/users/update_funcs.js";
-import { getAccountById } from "./js/accounts/get_funcs.js";
+import { getAccountById, getAllAccounts } from "./js/accounts/get_funcs.js";
 import {
   TRANSACTIONS,
   checkUserAndAccount,
@@ -53,6 +53,11 @@ app.get("/users", (req, res, next) => {
     const users = getAllUsers();
     res.send(users);
   }
+});
+
+app.get("/accounts", (req, res) => {
+  const accounts = getAllAccounts();
+  res.send(accounts);
 });
 
 app.get("/users", (req, res) => {
@@ -187,7 +192,6 @@ app.post("/users", (req, res) => {
   const { firstName, lastName, accounts } = req.body;
   try {
     const user = addUser(firstName, lastName, accounts);
-    updateUserCashBasedOnAccounts(user.passportId);
     res.send(user);
   } catch (e) {
     res.status(418);

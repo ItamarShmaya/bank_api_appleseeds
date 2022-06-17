@@ -1,6 +1,6 @@
 import fs from "fs";
 import uniqid from "uniqid";
-import { getAllUsers, getUserIndexById } from "./get_func.js";
+import { getAllUsers, getUserById, getUserIndexById } from "./get_func.js";
 import { USERS_PATH } from "../../data/data_dir_path.js";
 import { getUserAccountsById } from "./get_func.js";
 import { getAccountById } from "../accounts/get_funcs.js";
@@ -17,8 +17,6 @@ const createUserAccounts = (userId, accounts) => {
     if (typeof account === "string") {
       if (doesAccountExist(account)) {
         updateAccountOwners(userId, account);
-        const existingAccount = getAccountById(account);
-        totalCash += existingAccount.cash;
         return account;
       } else throw new Error("One of the accounts you entered does not exist");
     } else {
@@ -27,7 +25,6 @@ const createUserAccounts = (userId, accounts) => {
         accountId: uniqid(),
         ownersId: [userId],
       };
-      totalCash += account.cash;
       addAccount(newAccount);
       return newAccount.accountId;
     }
@@ -43,19 +40,19 @@ export const addUser = (firstName, lastName, accounts = []) => {
     );
 
   const userId = uniqid.process();
-  let totalCash = 0;
   const userAccounts = createUserAccounts(userId, accounts);
   const users = getAllUsers();
   const user = {
     firstName,
     lastName,
     passportId: userId,
-    totalCash,
+    totalCash: 0,
     accounts: userAccounts,
   };
   users.push(user);
   saveUsers(users);
-  return user;
+  const updatedUser = updateUserCashBasedOnAccounts(userId);
+  return updatedUser;
 };
 
 // update
@@ -64,13 +61,13 @@ export const updateUserCashBasedOnAccounts = (id) => {
   const userIndex = getUserIndexById(id);
   const accounts = getUserAccountsById(id);
   users[userIndex].totalCash = 0;
-  console.log(accounts);
   accounts.forEach((account) => {
     if (account.isActive) {
       users[userIndex].totalCash += account.cash;
     }
   });
   saveUsers(users);
+  return users[userIndex];
 };
 
 export const addAccountToUser = (id, accountId) => {
