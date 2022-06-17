@@ -81,6 +81,8 @@ Returns:
 
 **/user/{id}**
 
+Returns:
+
 ```
   {
     "firstName": "string",
@@ -92,6 +94,8 @@ Returns:
 #### get user by id full
 
 **/user/{id}**
+
+Returns:
 
 ```
   {
@@ -124,6 +128,8 @@ req.body: {
 }
 ```
 
+Returns user's account
+
 #### deposite by user id
 
 **/user/{id}/deposite**
@@ -137,6 +143,8 @@ req.body: {
 }
 ```
 
+Returns user's account
+
 #### change credit by user id
 
 **/user/{id}/credit**
@@ -149,6 +157,8 @@ req.body: {
   "amount": number
 }
 ```
+
+Returns user's account
 
 #### transfer by user id
 
@@ -165,6 +175,8 @@ req.body: {
 }
 ```
 
+Returns user's account
+
 #### add existing account to user
 
 **/user/{id}/add-account**
@@ -177,6 +189,8 @@ req.body: {
 }
 ```
 
+Returns user
+
 #### remove account from user
 
 **/user/{id}/remove-account**
@@ -188,6 +202,8 @@ req.body: {
   "accountId": "string",
 }
 ```
+
+Returns user
 
 ### POST
 
@@ -237,12 +253,18 @@ example:
 ]
 ```
 
+Returns created user
+
 ### DELETE
 
 #### delete user
+
+Returns deleted user
 
 **/users/{id}**
 
 #### delete account
 
 **/account/{id}**
+
+Returns deleted account
