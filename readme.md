@@ -251,7 +251,19 @@ example:
     "isActive": boolean
   }
 ]
+-----------------------
+"accounts": [
+  {}
+]
 ```
+
+\*if field was not specified creating an account with default values
+
+cash: 0,
+
+credit: 0,
+
+isActive: true
 
 Returns created user
 

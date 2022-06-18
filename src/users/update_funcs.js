@@ -1,6 +1,7 @@
 import fs from "fs";
 import uniqid from "uniqid";
-import { getAllUsers, getUserById, getUserIndexById } from "./get_func.js";
+import validator from "validator";
+import { getAllUsers, getUserIndexById } from "./get_func.js";
 import { USERS_PATH } from "../../data/data_dir_path.js";
 import { getUserAccountsById } from "./get_func.js";
 import { getAccountById } from "../accounts/get_funcs.js";
@@ -12,6 +13,11 @@ export const saveUsers = (users) => {
   fs.writeFileSync(USERS_PATH, JSON.stringify(users));
 };
 
+const validateNumberInput = (input) => {
+  if (!input || !validator.isNumeric(input.toString())) return 0;
+  return input;
+};
+
 const createUserAccounts = (userId, accounts) => {
   return accounts.map((account) => {
     if (typeof account === "string") {
@@ -21,7 +27,9 @@ const createUserAccounts = (userId, accounts) => {
       } else throw new Error("One of the accounts you entered does not exist");
     } else {
       const newAccount = {
-        ...account,
+        cash: validateNumberInput(account.cash),
+        credit: validateNumberInput(account.credit),
+        isActive: account.isActive !== "undefined" && true,
         accountId: uniqid(),
         ownersId: [userId],
       };
