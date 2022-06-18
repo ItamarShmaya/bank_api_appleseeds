@@ -223,13 +223,11 @@ req.body: {
 
 \*accounts => an array.
 
-empty/existing account id / new account object.
+existing account id / new account object.
 
 example:
 
 ```
-"accounts": []
------------------------
 "accounts": [
   "azxcas2e32",
   "zxczsadzxc",
