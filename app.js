@@ -212,6 +212,8 @@ app.put("/user/:id/remove-account", (req, res) => {
 app.post("/users", (req, res) => {
   const { firstName, lastName, accounts } = req.body;
   try {
+    if (!firstName) throw new Error("Must provide first name");
+    if (!lastName) throw new Error("Must provide last name");
     const user = addUser(firstName, lastName, accounts);
     res.send(user);
   } catch (e) {

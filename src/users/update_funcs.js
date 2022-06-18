@@ -40,11 +40,11 @@ const createUserAccounts = (userId, accounts) => {
 };
 
 export const addUser = (firstName, lastName, accounts = []) => {
-  if (!isValidName(firstName) && isValidName(lastName))
+  if (!isValidName(firstName) || !isValidName(lastName))
     throw new Error("name must contain only letters");
   if (!isValidAccountsStructure(accounts))
     throw new Error(
-      "accounts should be an array containing account object or account ID"
+      "accounts should be an array containing atleast one account object or account ID"
     );
 
   const userId = uniqid.process();

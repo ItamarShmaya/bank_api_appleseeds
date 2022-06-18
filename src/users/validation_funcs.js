@@ -6,7 +6,7 @@ export const isValidName = (name) => {
 };
 export const isValidAccountsStructure = (accounts) => {
   if (!Array.isArray(accounts)) return false;
-  if (accounts.length === 0) return true;
+  if (accounts.length < 1) return false;
   if (
     accounts.every(
       (account) => isPlainObject(account) || typeof account === "string"
