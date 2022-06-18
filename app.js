@@ -56,11 +56,6 @@ app.get("/users", (req, res, next) => {
   }
 });
 
-app.get("/accounts", (req, res) => {
-  const accounts = getAllAccounts();
-  res.send(accounts);
-});
-
 app.get("/users", (req, res) => {
   const { filter, min, max, firstName, lastName } = req.query;
   if (filter === "cash") return res.send(filterUsersByCash(min, max));
@@ -68,6 +63,22 @@ app.get("/users", (req, res) => {
     return res.send(filterUsersByName("firstName", firstName));
   if (filter === "lastname")
     return res.send(filterUsersByName("lastName", lastName));
+});
+
+app.get("/accounts", (req, res) => {
+  const accounts = getAllAccounts();
+  res.send(accounts);
+});
+
+app.get("/account/:id", (req, res) => {
+  const { id } = req.params;
+  const account = getAccountById(id);
+  if (account) {
+    res.send(account);
+  } else {
+    res.status(418);
+    res.send("Account not found");
+  }
 });
 
 app.get("/user", (req, res) => {
