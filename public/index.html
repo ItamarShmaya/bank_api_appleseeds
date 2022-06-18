@@ -120,7 +120,7 @@
           </div>
           <div class="endpoint">
             <h2>get user by id full</h2>
-            <h3>/user/{id}</h3>
+            <h3>/user/{id}/full</h3>
             <h4>Returns:</h4>
             <div>
               <!-- prettier-ignore -->
@@ -185,14 +185,14 @@
           </div>
           <div class="endpoint">
             <h2>transfer by user id</h2>
-            <h3>/user{id}/transfer</h3>
+            <h3>/user/{id}/transfer</h3>
             <h4>required</h4>
             <div>
               <!-- prettier-ignore -->
               <pre><code>req.body: {
   "fromAccountId": "string",
   "amount": number,
-  "toUserId" "string",
+  "toUserId": "string",
   "toAccountId": "string"
 }</code></pre>
             </div>

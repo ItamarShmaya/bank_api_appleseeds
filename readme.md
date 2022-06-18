@@ -93,7 +93,7 @@ Returns:
 
 #### get user by id full
 
-**/user/{id}**
+**/user/{id}/full**
 
 Returns:
 
@@ -162,7 +162,7 @@ Returns user's account
 
 #### transfer by user id
 
-**/user{id}/transfer**
+**/user/{id}/transfer**
 
 **_required_**
 
@@ -170,7 +170,7 @@ Returns user's account
 req.body: {
   "fromAccountId": "string",
   "amount": number,
-  "toUserId" "string",
+  "toUserId": "string",
   "toAccountId": "string"
 }
 ```

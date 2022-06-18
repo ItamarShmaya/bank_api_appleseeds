@@ -148,6 +148,8 @@ app.put("/user/:id/transfer", (req, res) => {
   try {
     checkUserAndAccount(id, fromAccountId);
     checkUserAndAccount(toUserId, toAccountId);
+    if (fromAccountId === toAccountId)
+      throw new Error("Accounts must be different");
     isValidTransaction(fromAccountId, amount, TRANSACTIONS.TRANSFER);
     withdrawCash(fromAccountId, amount);
     depositeCash(toAccountId, amount);

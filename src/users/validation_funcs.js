@@ -22,7 +22,7 @@ export const doesUserExist = (id) => {
 
 export const doesUserOwnAccount = (userId, accountId) => {
   const user = getUserById(userId);
-  return user.accounts.some((account) => account === +accountId);
+  return user.accounts.some((account) => account === accountId);
 };
 
 const isPlainObject = (o) => {
