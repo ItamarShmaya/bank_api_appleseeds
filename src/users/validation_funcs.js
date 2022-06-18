@@ -33,6 +33,7 @@ const isPlainObject = (o) => {
   return c === true;
 };
 
-// export const isValidUserInfo = () => {
-
-// }
+export const doesUserHaveCashOrInDebt = (id) => {
+  const user = getUserById(id);
+  return user.totalCash !== 0;
+};

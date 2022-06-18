@@ -6,6 +6,7 @@ import {
 } from "./src/users/get_func.js";
 import {
   doesUserExist,
+  doesUserHaveCashOrInDebt,
   doesUserOwnAccount,
 } from "./src/users/validation_funcs.js";
 import {
@@ -225,6 +226,8 @@ app.delete("/user/:id", (req, res) => {
   const { id } = req.params;
   try {
     if (!doesUserExist(id)) throw new Error("User doesn't exist");
+    if (doesUserHaveCashOrInDebt(id))
+      throw new Error("Can't delete a user with cash or in debt");
     const user = getUserById(id);
     user.accounts.forEach((accountId) => {
       removeUserIdFromAccount(id, accountId);
