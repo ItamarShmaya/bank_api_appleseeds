@@ -265,6 +265,29 @@ isActive: true
 
 Returns created user
 
+#### create account
+
+**/accounts**
+
+```
+req.body: {
+  "ownerId": "string"
+  "cash": "string",
+  "credit": "string",
+  "isActive": boolean
+}
+```
+
+ownderId: **_required_**
+
+\*if field was not specified creating an account with default values
+
+cash: 0,
+
+credit: 0,
+
+isActive: true
+
 ### DELETE
 
 #### delete user

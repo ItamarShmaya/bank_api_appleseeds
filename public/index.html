@@ -275,6 +275,27 @@
             <p>isActive: true</p>
             <p>Returns created user</p>
           </div>
+          <div class="endpoint">
+            <h2>create account</h2>
+            <h3>/accounts</h3>
+            <div>
+              <!-- prettier-ignore -->
+              <pre><code>req.body: {
+"ownerId": "string"
+"cash": "string",
+"credit": "string",
+"isActive": boolean
+}</code></pre>
+            </div>
+            <p>ownderId: <b>required</b></p>
+            <p>
+              if field was not specified creating an account with default values
+            </p>
+            <p>cash: 0,</p>
+            <p>credit: 0,</p>
+            <p>isActive: true</p>
+            <p>Returns created account</p>
+          </div>
         </section>
         <section id="DELETE">
           <h1>DELETE</h1>
