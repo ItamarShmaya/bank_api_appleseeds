@@ -1,3 +1,4 @@
+import validator from "validator";
 import { doesUserExist } from "../users/validation_funcs.js";
 import { getAccountById } from "./get_funcs.js";
 
@@ -63,4 +64,9 @@ export const isValidTransaction = (accountId, amount, action) => {
 export const doesAccountHaveCashOrInDebt = (accountId) => {
   const account = getAccountById(accountId);
   return account.cash !== 0;
+};
+
+export const validateAccountCashOrCredit = (input) => {
+  if (!input || !validator.isNumeric(input.toString())) return 0;
+  return input;
 };

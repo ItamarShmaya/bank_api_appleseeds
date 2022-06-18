@@ -31,6 +31,8 @@ import {
   updateCredit,
   deleteAccountById,
   removeUserIdFromAccount,
+  createAccount,
+  addAccount,
 } from "./src/accounts/update_funcs.js";
 import {
   filterUsersByCash,
@@ -216,6 +218,22 @@ app.post("/users", (req, res) => {
     if (!lastName) throw new Error("Must provide last name");
     const user = addUser(firstName, lastName, accounts);
     res.send(user);
+  } catch (e) {
+    res.status(418);
+    res.send(e.message);
+  }
+});
+
+app.post("/accounts", (req, res) => {
+  const { ownerId, cash, credit, isActive } = req.body;
+  try {
+    if (!ownerId) throw new Error("An account must have atleast one owner");
+    if (!doesUserExist(ownerId)) throw new Error("User doesn't exist");
+    const newAccount = createAccount(ownerId, cash, credit, isActive);
+    addAccount(newAccount);
+    addAccountToUser(ownerId, newAccount.accountId);
+    updateUserCashBasedOnAccounts(ownerId);
+    res.send(newAccount);
   } catch (e) {
     res.status(418);
     res.send(e.message);

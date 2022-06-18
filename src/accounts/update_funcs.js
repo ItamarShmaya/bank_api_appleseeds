@@ -1,6 +1,8 @@
 import fs from "fs";
+import uniqid from "uniqid";
 import { ACCOUNTS_PATH } from "../../data/data_dir_path.js";
 import { getAccountIndexById, getAllAccounts } from "./get_funcs.js";
+import { validateAccountCashOrCredit } from "./validation_funcs.js";
 
 export const saveAccounts = (accounts) => {
   fs.writeFileSync(ACCOUNTS_PATH, JSON.stringify(accounts));
@@ -64,4 +66,15 @@ export const removeUserIdFromAccount = (userId, accountId) => {
   } else {
     saveAccounts(accounts);
   }
+};
+
+export const createAccount = (userId, cash, credit, isActive) => {
+  const newAccount = {
+    cash: validateAccountCashOrCredit(cash),
+    credit: validateAccountCashOrCredit(credit),
+    isActive: isActive === undefined ? true : isActive,
+    accountId: uniqid(),
+    ownersId: [userId],
+  };
+  return newAccount;
 };
